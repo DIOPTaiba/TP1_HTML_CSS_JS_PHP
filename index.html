@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page d'accueil Employés</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="script_index.css" />
+</head>
+<body>
+
+	<header>
+		<h1>BIENVENUE DANS LA BANQUE DU PEUPLE</h1>
+	</header>
+
+	<h2>VEILLEZ SELECTIONNER VOTRE PROFIL</h2>
+
+	<div class="choix_profil">
+
+		<button id="page_authentification_admin" onclick="au">Aministrateur</button>
+
+		<button id="page_authentification_responsable" onclick="">Responsable Compte</button>
+
+		<button id="page_authentification_caissere" onclick="">Caissière</button>
+
+	</div>
+
+	<div id="page_authentification">
+
+		<p>Authentifiez-vous SVP</p>
+
+		<form id="formulaire_authentification" action="authentification_responsable.php" method="POST">
+			<label for="login">Login<em>*</em></label>
+			<input type="text" id="login" name="login">
+			<label for="mot_passe">Mot de passe<em>*</em></label>
+			<input type="password" id="mot_passe" name="mot_passe">
+
+			<div class="validation">
+				<input type="submit" value="Valider" id="valider" />
+				<input type="reset" value="Annuler" />
+			</div>
+
+		</form>
+
+		<form id="formulaire_authentification" action="authentification_responsable.php" method="POST">
+			<label for="login">Login<em>*</em></label>
+			<input type="text" id="login" name="login">
+			<label for="mot_passe">Mot de passe<em>*</em></label>
+			<input type="password" id="mot_passe" name="mot_passe">
+
+			<div class="validation">
+				<input type="submit" value="Valider" id="valider" />
+				<input type="reset" value="Annuler" />
+			</div>
+
+		</form>
+
+		<form id="formulaire_authentification" action="authentification_caissiere.php" method="POST">
+			<label for="login">Login</label>
+			<input type="text" id="login" name="login">
+			<label for="mot_passe">Mot de passe<em>*</em></label>
+			<input type="password" id="mot_passe" name="mot_passe">
+
+			<div class="validation">
+				<input type="submit" value="Valider" id="valider" />
+				<input type="reset" value="Annuler" />
+			</div>
+
+		</form>
+		
+	</div>
+
+
+
+
+</body>
+</html>
