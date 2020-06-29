@@ -1,32 +1,137 @@
+var page_authentification = document.getElementById('page_authentification');
+var formulaire_admin = document.getElementById('formulaire_admin');
+var formulaire_responsable = document.getElementById('formulaire_responsable');
+var formulaire_caissiere = document.getElementById('formulaire_caissiere');
+
+function affiche_authentification_admin()
+{
+   page_authentification.style.display = "block";
+   formulaire_admin.style.display = "block";
+   formulaire_responsable.style.display = "none";
+   formulaire_caissiere.style.display = "none";
+}
+function affiche_authentification_responsable()
+{
+   page_authentification.style.display = "block";
+   formulaire_responsable.style.display = "block";
+   formulaire_admin.style.display = "none";
+   formulaire_caissiere.style.display = "none";
+}
+function affiche_authentification_caissiere()
+{
+   page_authentification.style.display = "block";
+   formulaire_caissiere.style.display = "block";
+   formulaire_admin.style.display = "none";
+   formulaire_responsable.style.display = "none";
+}
+
+var login_admin = document.getElementById('login_admin');
+var mot_passe_admin = document.getElementById('mot_passe_admin');
+
+function controle_champs_admin()
+{
+   if (login_admin.value.trim() == "")
+   {
+      login_admin.style.backgroundColor = "#fba";
+      login_admin.placeholder = "Veillez remplir ce champ";
+      return false;
+   }
+   else if (mot_passe_admin.value.trim() == "")
+   {
+      mot_passe_admin.style.backgroundColor = "#fba";
+      mot_passe_admin.placeholder = "Veillez remplir ce champ";
+      return false;
+   }
+   else
+   {
+      login_admin.style.backgroundColor = "";
+      mot_passe_admin.style.backgroundColor = "";
+      return true;
+   }
+}
+var login_responsable = document.getElementById('login_responsable');
+var mot_passe_responsable = document.getElementById('mot_passe_responsable');
+
+function controle_champs_responsable()
+{
+   if (login_responsable.value.trim() == "")
+   {
+      login_responsable.style.backgroundColor = "#fba";
+      login_responsable.placeholder = "Veillez remplir ce champ";
+      return false;
+   }
+   else if (mot_passe_responsable.value.trim() == "")
+   {
+      mot_passe_responsable.style.backgroundColor = "#fba";
+      mot_passe_responsable.placeholder = "Veillez remplir ce champ";
+      return false;
+   }
+   else
+   {
+      login_responsable.style.backgroundColor = "";
+      mot_passe_responsable.style.backgroundColor = "";
+      return true;
+   }
+}
+
+var login_caissiere = document.getElementById('login_caissiere');
+var login_caissiere = document.getElementById('login_caissiere');
+
+function controle_champs_caissiere()
+{
+   if (login_caissiere.value.trim() == "")
+   {
+      login_caissiere.style.backgroundColor = "#fba";
+      login_caissiere.placeholder = "Veillez remplir ce champ";
+      return false;
+   }
+   else if (login_caissiere.value.trim() == "")
+   {
+      login_caissiere.style.backgroundColor = "#fba";
+      login_caissiere.placeholder = "Veillez remplir ce champ";
+      return false;
+   }
+   else
+   {
+      login_caissiere.style.backgroundColor = "";
+      login_caissiere.style.backgroundColor = "";
+      return true;
+   }
+}
+/*===================Gestion choix client existant ou nouveau client=============*/
+var client_existant = document.getElementById('client_existant');
+var nouveau_client = document.getElementById('nouveau_client');
+var saisie_id_client = document.getElementById('saisie_id_client');
+var form_compte_non_salarie = document.getElementById('form_compte_non_salarie');
+
+function affiche_client_existant()
+{
+   saisie_id_client.style.display = "block";
+   form_compte_non_salarie.style.display = "none";
+}
+function affiche_nouveau_client()
+{
+   saisie_id_client.style.display = "none";
+   form_compte_non_salarie.style.display = "block";
+
+}
+
+
+/*==========Fonction permettant de signlé l'erreur des champ non valide=========*/
 function controle_champ(champ, erreur)
 {
 
    if(erreur)
    {
-   		champ.style.backgroundColor = "#fba";
-   		champ.placeholder = "Veillez remplir ce champ correctement"
+   	champ.style.backgroundColor = "#fba";
+   	champ.placeholder = "Veillez remplir ce champ correctement"
    }
 
    else
       champ.style.backgroundColor = "";
 }
 
-var client_existant = document.getElementById('client_existant');
-var nouveau_client = document.getElementById('nouveau_client');
-var saisie_id_client = document.getElementById('saisie_id_client');
-
-
-function affiche_client_existant()
-{
-	saisie_id_client.style.display = "block";
-}
-function affiche_nouveau_client()
-{
-	saisie_id_client.style.display = "none";
-}
-
-
-
+/*===========Contrôle validité Nom===============================================*/
 function verifie_nom(champ)
 {
    if(champ.value.trim() == "" || !isNaN(champ.value))

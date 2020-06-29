@@ -1,9 +1,13 @@
+body
+{
+		background-color: #504DC1;
+}
 h1
 {
-	background-color: #504DC1;
+	background-color: white;
 	border-radius: 10px;
 	padding: 10px 20px 10px 20px;
-	color: white;
+	color: #504DC1;
 	text-align: center;
 	width: 55%;
 	height: 40px;
@@ -12,43 +16,56 @@ h1
 }
 h2
 {
+	color: white;
 	text-align: center;
 	margin-top: 50px;
-	margin-bottom: 15px;
+	margin-bottom: 2%;
 	font-family: Arial, "Arial Black", "Times New Roman", Times, serif;
 }
-/*#page_authentification
+h3
 {
-	border-color: #504DC1 solid 1px;
-	background-color: red;
-	border-radius: 10px;
-	border-style: solid;
-	width: 50%;
-	margin: auto;
-	padding: 3%;
-	margin-bottom: 15px;
+	text-align: center;
+	font-family: Arial, "Arial Black", "Times New Roman", Times, serif;
 }
-#formulaire_authentification
+.choix_profil, .accueil_responsable
 {
-	border-color: #504DC1;
-	border-radius: 10px;
-	border-style: solid;
-	width: 50%;
+	width: 65%;
 	margin: auto;
-	padding: 3%;
-	margin-bottom: 15px;
-}*/
-.accueil_responsable
-{
-	width: 70%;
-	margin: auto;
-	margin-top: 10%;
+	margin-bottom: 5%;
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
+
+}
+#page_authentification
+{
+	/*border-color: #504DC1 solid 1px;*/
+	background-color: #EFEFEF;
+	border-radius: 10px;
+	/*border-style: solid;*/
+	width: 50%;
+	margin: auto;
+	padding: 2%;
+	margin-bottom: 15px;
+	color: #504DC1;
+	/*text-align: center;*/
 }
 
-button
+#formulaire_admin fieldset, #formulaire_responsable fieldset, #formulaire_caissiere fieldset
+{
+	border-color: #504DC1;
+	border-radius: 10px;
+	border: solid 2px;
+	width: 90%;
+	margin: auto;
+	padding: 3%;
+	margin-bottom: 15px;
+}
+#page_authentification, #formulaire_admin, #formulaire_responsable, #formulaire_caissiere
+{
+	display: none;
+}
+.choix_profil button
 {
 	border-color: #504DC1;
 	border-radius: 10px;
@@ -67,31 +84,7 @@ button
 	font-family: "Nunito Sans", sans-serif;
 	text-align: center;
 }
-button:hover
-{
-	box-shadow: 4px 4px #FFD007;
-	transform: translate(3px, 3px); /*transistion (déplacement) de l'élément au survol souris*/
-}
-a
-{
-	border-color: #504DC1;
-	border-radius: 10px;
-	border-style: solid;
-	
-	height: 55px;
-	width: 30%;
-	padding: auto;
-	margin: auto;
-	margin-right: 15px;
-
-	transition:  0.2s; /*permet de définir la vitesse de la transistion*/
-	text-decoration: none;
-	color: #504DC1;
-	font: 20px bold;
-	font-family: "Nunito Sans", sans-serif;
-	text-align: center;
-}
-a:hover
+.choix_profil button:hover
 {
 	box-shadow: 4px 4px #FFD007;
 	transform: translate(3px, 3px); /*transistion (déplacement) de l'élément au survol souris*/
@@ -106,6 +99,30 @@ fieldset
 	margin: auto;
 	padding: 3%;
 	margin-bottom: 15px;
+}
+.accueil_responsable a
+{
+	border-color: #504DC1;
+	border-radius: 10px;
+	border-style: solid;
+	
+	height: 55px;
+	width: 30%;
+	margin: auto;
+	margin-right: 15px;
+
+	transition:  0.2s; /*permet de définir la vitesse de la transistion*/
+	text-decoration: none;
+	color: #504DC1;
+	font: 20px bold;
+	font-family: "Nunito Sans", sans-serif;
+	text-align: center;
+	background-color: #EFEFEF;
+}
+.accueil_responsable a:hover
+{
+	box-shadow: 4px 4px #FFD007;
+	transform: translate(3px, 3px); /*transistion (déplacement) de l'élément au survol souris*/
 }
 legend
 {
@@ -123,20 +140,50 @@ label {
 }
  
 em {
-  	font-weight: bold;
+  	/*font-weight: bold;*/
   	font-style: normal;
   	color: #f00;
 }
 
 input {
+  	
+  	border: solid #504DC1 2px ;
+  	border-radius: 5px;
+  	margin-bottom: 7px;
+  	/*margin-left: 10%;*/
+
+}
+#form_compte_non_salarie
+{
+	background-color: #EFEFEF;
+	width: 60%;
+	margin: auto;
+}
+#form_compte_non_salarie fieldset
+{
+	width: 80%;
+}
+#form_compte_non_salarie input {
   	width: 249px;
   	height: 20px;
   	border: solid #504DC1 2px ;
   	border-radius: 5px;
   	margin-bottom: 7px;
   	margin-left: 10%;
+
 }
 
+#form_compte_non_salarie h2
+{
+	color: #808080;
+	
+}
+
+/*on cache le formulaire pour la création de tous les comptes*/
+#form_compte_non_salarie
+{
+	display: none;
+}
 select 
 {
 	border: solid #504DC1 2px ;
@@ -177,7 +224,7 @@ select
 {
 	width: 400px;
 	margin: auto;
-	background-color: gray;
+	background-color: #EFEFEF;
 	margin-top: 3%;
 	padding: 15px 0px 15px 0px;
 
@@ -215,7 +262,7 @@ select
 	text-align: center;
 	height: 28px;
 }
-.search
+#search
 {
 	background-color: white;
 	border-radius: 5px;
@@ -223,7 +270,7 @@ select
 	font-weight: bold;
 	height: 28px;
 }
-.search:hover
+#search:hover
 {
 	background-color: green;
 	color: white;
@@ -232,4 +279,9 @@ select
 #saisie_id_client
 {
 	display: none;
+}
+
+button a
+{
+	text-decoration: none;
 }
