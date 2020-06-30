@@ -20,7 +20,7 @@
 
 		<a href="compte_client_salarie.php">Compte Client Salarié</a>
 
-		<a href="compte_client_entreprise.php">Compte Client Moral</a>
+		<a href="compte_client_moral.php">Compte Client Moral</a>
 
 	</div>
 
