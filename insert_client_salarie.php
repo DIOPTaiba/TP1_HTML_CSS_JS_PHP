@@ -6,6 +6,7 @@ include("connexion_bdd_bp.php");
 
 echo $_POST['type_compte'];
 echo $_POST['id_responsable_compte'];
+
 // Insertion des infos dana clients à l'aide d'une requête préparée
 $req = $bdd->prepare('INSERT INTO clients (adresse, telephone, email, date_inscription, type_client, id_responsable_compte) VALUES(:adresse, :telephone, :email, NOW(), :type_client, :id_responsable_compte)');
 $req->execute(array(
@@ -19,11 +20,17 @@ $req->execute(array(
 $req->closeCursor();
 
 //insertion des onfos dans client_non_salarie
-$req = $bdd->prepare('INSERT INTO client_non_salarie (nom, prenom, carte_identite, id_clients) VALUES(:nom, :prenom, :carte_identite, :id_clients)');
+$req = $bdd->prepare('INSERT INTO client_salarie (nom, prenom, carte_identite, profession, salaire, nom_employeur, adresse_entreprise, raison_social, identifiant_entreprise,id_clients) VALUES(:nom, :prenom, :carte_identite, :profession, :salaire, :nom_employeur, :adresse_entreprise, :raison_social, :identifiant_entreprise, :id_clients)');
 $req->execute(array(
 	'nom' => $_POST['nom'],
 	'prenom' => $_POST['prenom'],
 	'carte_identite' => $_POST['carte_identite'],
+	'profession' => $_POST['profession'],
+	'salaire' => $_POST['salaire'],
+	'nom_employeur' => $_POST['nom_employeur'],
+	'adresse_entreprise' => $_POST['adresse_entreprise'],
+	'raison_social' => $_POST['raison_social'],
+	'identifiant_entreprise' => $_POST['identifiant_entreprise'],
 	'id_clients' => 1
 ));
 
@@ -60,7 +67,7 @@ if($_POST['type_compte'] == 'compte epargne')
 		));
 	$req->closeCursor();
 }
-/*else if($_POST['type_compte'] == 'compte courant')
+else if($_POST['type_compte'] == 'compte courant')
 {
 	$req = $bdd->prepare('INSERT INTO compte_courant (agios, id_comptes) VALUES(:agios, :id_comptes)');
 	$req->execute(array(
@@ -68,7 +75,7 @@ if($_POST['type_compte'] == 'compte epargne')
 		'id_comptes' => 2
 		));
 	$req->closeCursor();
-}*/
+}
 else
 {
 	$req = $bdd->prepare('INSERT INTO compte_bloque (frais_ouverture, montant_remuneration, duree_blocage, id_comptes) VALUES(:frais_ouverture, :montant_remuneration, :duree_blocage, :id_comptes)');
