@@ -153,17 +153,18 @@ input {
   	/*margin-left: 10%;*/
 
 }
-#form_compte_non_salarie
+#form_compte_non_salarie, #form_compte_salarie, #form_compte_entreprise
 {
 	background-color: #EFEFEF;
 	width: 60%;
 	margin: auto;
 }
-#form_compte_non_salarie fieldset
+#form_compte_non_salarie fieldset, #form_compte_salarie fieldset, #form_compte_entreprise fieldset
 {
 	width: 80%;
 }
-#form_compte_non_salarie input {
+#form_compte_non_salarie input, #form_compte_salarie input, #form_compte_entreprise input
+{
   	width: 249px;
   	height: 20px;
   	border: solid #504DC1 2px ;
@@ -173,14 +174,14 @@ input {
 
 }
 
-#form_compte_non_salarie h2
+#form_compte_non_salarie h2, #form_compte_salarie h2, #form_compte_entreprise h2
 {
 	color: #808080;
 	
 }
 
 /*on cache le formulaire pour la création de tous les comptes*/
-#form_compte_non_salarie
+#form_compte_non_salarie, #form_compte_salarie, #form_compte_entreprise
 {
 	display: none;
 }
@@ -206,11 +207,8 @@ select
 {
 	width: 220px;
 }
-/*#duree_blocage
-{
-	visibility: hidden;
-}*/
-#temps_blocage
+
+#duree_blocage
 {
 	width: 50px;
 }
@@ -276,7 +274,7 @@ select
 	color: white;
 }
 
-#saisie_id_client
+#saisie_id_client, #duree_blocage_compte, #frais_ouverture_compte, #montant_remuneration_compte, #agios_compte
 {
 	display: none;
 }

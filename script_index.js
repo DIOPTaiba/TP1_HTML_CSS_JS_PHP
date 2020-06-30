@@ -102,8 +102,9 @@ function controle_champs_caissiere()
 var client_existant = document.getElementById('client_existant');
 var nouveau_client = document.getElementById('nouveau_client');
 var saisie_id_client = document.getElementById('saisie_id_client');
-var form_compte_non_salarie = document.getElementById('form_compte_non_salarie');
 
+/*=====affichage formulaire client non salarie ou non selon choix client existant ou non======*/
+var form_compte_non_salarie = document.getElementById('form_compte_non_salarie');
 function affiche_client_existant()
 {
    saisie_id_client.style.display = "block";
@@ -113,9 +114,35 @@ function affiche_nouveau_client()
 {
    saisie_id_client.style.display = "none";
    form_compte_non_salarie.style.display = "block";
+   
 
 }
 
+/*=====affichage formulaire client salarie ou non selon choix client existant ou non======*/
+var form_compte_salarie = document.getElementById('form_compte_salarie');
+function client_existant_salarie()
+{
+   saisie_id_client.style.display = "block";
+   form_compte_salarie.style.display = "none";
+}
+function nouveau_client_salarie()
+{
+   saisie_id_client.style.display = "none";
+   form_compte_salarie.style.display = "block";
+}
+
+/*=====affichage formulaire client moral ou non selon choix client existant ou non======*/
+var form_compte_entreprise = document.getElementById('form_compte_entreprise');
+function client_existant_moral()
+{
+   saisie_id_client.style.display = "block";
+   form_compte_entreprise.style.display = "none";
+}
+function nouveau_client_moral()
+{
+   saisie_id_client.style.display = "none";
+   form_compte_entreprise.style.display = "block";
+}
 
 /*==========Fonction permettant de signlé l'erreur des champ non valide=========*/
 function controle_champ(champ, erreur)
@@ -291,17 +318,34 @@ cle_rib.disabled = "true";
 var date_ouverture = document.getElementById('date_ouverture');
 date_ouverture.disabled = "true";
 */
+
+var identifiant_entreprise = document.getElementById('identifiant_entreprise');
+function verifie_identifiant_entreprise()
+{
+   if (identifiant_entreprise.value == "" || identifiant_entreprise.value.length < 3)
+   {
+      identifiant_entreprise.placeholder = "renseignez l'identifiant entreprise";
+      identifiant_entreprise.style.backgroundColor = '#fba';
+
+      return false;
+   }
+   else
+   {
+      identifiant_entreprise.placeholder = "";
+      identifiant_entreprise.style.backgroundColor = '';
+
+      return true;
+   }
+}
+
 var erreur_selection = document.getElementById('erreur_selection');
 
 var frais_ouverture_compte = document.getElementById('frais_ouverture_compte');
 var montant_remuneration_compte = document.getElementById('montant_remuneration_compte');
 var agios_compte = document.getElementById('agios_compte');
-var duree_blocage = document.getElementById('duree_blocage');
+var duree_blocage_compte = document.getElementById('duree_blocage_compte');
 
-duree_blocage.style.display ="none";
-frais_ouverture_compte.style.display ="none";
-montant_remuneration_compte.style.display ="none";
-agios_compte.style.display ="none";
+
 
 function verifie_type_compte(champ)
 {
@@ -315,34 +359,34 @@ function verifie_type_compte(champ)
    }
    else
    {
-   			erreur_selection.innerText = "";
-		      champ.style.border = "";
+			erreur_selection.innerText = "";
+	      champ.style.border = "";
    	if (champ.selectedIndex == 1)
 	   {
-	   		frais_ouverture_compte.style.display ="block";
-            montant_remuneration_compte.style.display ="block";
-	   		agios_compte.style.display ="none";
-	   		duree_blocage.style.display ="none";
+   		frais_ouverture_compte.style.display ="block";
+         montant_remuneration_compte.style.display ="block";
+   		agios_compte.style.display ="none";
+   		duree_blocage_compte.style.display ="none";
 	   		
-		    return true;
+		   return true;
 	   }
 	   else if (champ.selectedIndex == 2)
-	   {
-	   		frais_ouverture_compte.style.display ="none";
-            montant_remuneration_compte.style.display ="none";
-	   		duree_blocage.style.display ="none";
-	   		agios_compte.style.display ="block";
+   {
+   		frais_ouverture_compte.style.display ="none";
+         montant_remuneration_compte.style.display ="none";
+   		duree_blocage_compte.style.display ="none";
+   		agios_compte.style.display ="block";
 	   		
-		    return true;
+		   return true;
 	   }
 		else
 		{	
 			agios_compte.style.display ="none";
-			duree_blocage.style.display ="block";
+			duree_blocage_compte.style.display ="block";
 			frais_ouverture_compte.style.display = "block";
          montant_remuneration_compte.style.display ="block";
 			
-		    return true;
+		   return true;
 		}
    }
 
@@ -350,9 +394,8 @@ function verifie_type_compte(champ)
 }
 
 var type_compte = document.getElementById('type_compte');
-var temps_blocage = document.getElementById('temps_blocage');
+var duree_blocage = document.getElementById('duree_blocage');
 var erreur_duree = document.getElementById('erreur_duree');
-
 
 function verification_duree_blocage()
 {
@@ -361,10 +404,10 @@ function verification_duree_blocage()
    	{
     	
     	
-		if(isNaN(temps_blocage.value) || temps_blocage.value == "" || (parseInt(temps_blocage.value) < 12) )
+		if(isNaN(duree_blocage.value) || duree_blocage.value == "" || (parseInt(duree_blocage.value) < 12) )
 		{
 			/*alert('la durée de blocage doit faire minimum 12 mois');*/
-		    controle_champ(temps_blocage, true);
+		    controle_champ(duree_blocage, true);
 		    /*erreur_duree.style.backgroundColor = "#fba";
    			erreur_duree.contentText = "Donner la durée de blocage";
    			erreur_duree.style.color = 'red';*/
@@ -372,7 +415,7 @@ function verification_duree_blocage()
 		}
 	   else
 	   {
-	      controle_champ(temps_blocage, false);
+	      controle_champ(duree_blocage, false);
 	      return true;
 	   }
 		
