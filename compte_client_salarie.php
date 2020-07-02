@@ -25,7 +25,6 @@
 			</form>
 		</div>
 
-
 		
 		<form id="form_compte_salarie" action="insert_client_salarie.php" method="post" autocomplete="on" onsubmit="return verifie_formulaire_salarie(this)">
 
