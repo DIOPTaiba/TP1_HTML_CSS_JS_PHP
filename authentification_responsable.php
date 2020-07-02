@@ -29,7 +29,7 @@ $resultat = $req->fetch();
 //on test si le résultation renvoie true (c'est à dire il y'a 1 login et mot de passe qui correspondent)
 if (!$resultat) {
 	 echo 'login ou mot de passe incorrecte! <br />';
-	 echo '<a href="index.html">Réessayer</a>';
+	 echo '<a href="index.php">Réessayer</a>';
 }
 else{
 	session_start();

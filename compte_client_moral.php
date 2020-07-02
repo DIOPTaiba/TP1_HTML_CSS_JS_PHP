@@ -11,24 +11,27 @@
 	</header>
 
 	<div class="choix_client">
-		<div id="select_client">
-			<button id="nouveau_client" name="nouveau_client" onclick="nouveau_client_moral()">Nouveau Client</button>
-			<!--<label for="nouveau_client"></label><br>-->
-			<button id="client_existant" name="client_existant" onclick="client_existant_moral()">Client
-				Existant</button>
-			<!--<label for="client_existant"></label><br>-->
 
-		</div>
-		<div id="saisie_id_client">
-			<input type="search" id="id_client" name="id_client" placeholder="identifiant client" />
-			<button class="search">Search</button>
-		</div>
-	</div>
+			<p>Cliquez sur Nouveau client pour enregistrer un compte pour un nouveau client</p>
+			<p>Cliquez sur Client existant pour enregistrer un compte pour un client qui existe déjà</p>
+			<div id="select_client">
+				<button id="nouveau_client" name="nouveau_client" onclick="affiche_nouveau_client_moral()">Nouveau Client</button>
+				<button id="client_existant" name="client_existant" onclick="affiche_client_existant_moral()">Client Existant</button>
 
-	<h2>VEILLEZ SAISIR LES INFORMATIONS DU CLIENT</h2>
+			</div>
+			<form id="saisie_id_client" action="recherche_client_salarie.php" method="POST" >
+				<input type="search" id="identifiant_client" name="identifiant_client" placeholder="identifiant client" />
+				<input type="submit" name="search" id="search" value="Search" /> 
+			</form>
+		</div>
+
+	
 
 	<form id="form_compte_entreprise" action="insert_client_moral.php" method="post" onsubmit="return verifie_formulaire_entreprise(this)">
+
+			<h2>VEILLEZ SAISIR LES INFORMATIONS DU CLIENT</h2>
 			<p><i>Complétez le formulaire. Les champs marqué par <em>*</em> sont <em>obligatoires</em></i></p>
+			
 		<fieldset>
 			<legend>Informations du Client</legend>
 			<div>
@@ -69,7 +72,7 @@
 		<fieldset>
 			<legend>Informations Compte</legend>
 				<label class="selection_type_compte">Sélectionnez le type de compte <em>*</em></label>
-				<select id="type_compte" name="type_compte" onchange ="verifie_type_compte(this)">
+				<select id="type_compte" name="type_compte" >
 				<option>Type de compte</option>
 				<option value="compte epargne">Compte Epargne</option>
 				<option value="compte courant">Compte Courant</option>

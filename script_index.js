@@ -120,12 +120,12 @@ function affiche_nouveau_client()
 
 /*=====affichage formulaire client salarie ou non selon choix client existant ou non======*/
 var form_compte_salarie = document.getElementById('form_compte_salarie');
-function client_existant_salarie()
+function affiche_client_existant_salarie()
 {
    saisie_id_client.style.display = "block";
    form_compte_salarie.style.display = "none";
 }
-function nouveau_client_salarie()
+function affiche_nouveau_client_salarie()
 {
    saisie_id_client.style.display = "none";
    form_compte_salarie.style.display = "block";
@@ -133,12 +133,12 @@ function nouveau_client_salarie()
 
 /*=====affichage formulaire client moral ou non selon choix client existant ou non======*/
 var form_compte_entreprise = document.getElementById('form_compte_entreprise');
-function client_existant_moral()
+function affiche_client_existant_moral()
 {
    saisie_id_client.style.display = "block";
    form_compte_entreprise.style.display = "none";
 }
-function nouveau_client_moral()
+function affiche_nouveau_client_moral()
 {
    saisie_id_client.style.display = "none";
    form_compte_entreprise.style.display = "block";
@@ -345,53 +345,53 @@ var montant_remuneration_compte = document.getElementById('montant_remuneration_
 var agios_compte = document.getElementById('agios_compte');
 var duree_blocage_compte = document.getElementById('duree_blocage_compte');
 
+var type_compte = document.getElementById('type_compte');
+type_compte.addEventListener('change',(event)=>{
+   event.preventDefault();
+   console.log(type_compte.value);
 
+      if(type_compte.value == "non selection")
+      {
+         	erreur_selection.innerText = "Sélectionnez un type de compte";
+         	erreur_selection.style.color = 'red';
+         	type_compte.style.border = 'solid #fba';
 
-function verifie_type_compte(champ)
-{
-   if(champ.selectedIndex == 0)
-   {
-      	erreur_selection.innerText = "Sélectionnez un type de compte";
-      	erreur_selection.style.color = 'red';
-      	champ.style.border = 'solid #fba';
+         return false;
+      }
+      else
+      {
+   			erreur_selection.innerText = "";
+   	      type_compte.style.border = "";
+      	if (type_compte.value == "compte epargne")
+   	   {
+      		frais_ouverture_compte.style.display ="block";
+            montant_remuneration_compte.style.display ="block";
+      		agios_compte.style.display ="none";
+      		duree_blocage_compte.style.display ="none";
+   	   		
+   		   return true;
+   	   }
+   	   else if (type_compte.value == "compte courant")
+         {
+      		frais_ouverture_compte.style.display ="none";
+            montant_remuneration_compte.style.display ="none";
+      		duree_blocage_compte.style.display ="none";
+      		agios_compte.style.display ="block";
+   	   		
+   		   return true;
+   	   }
+   		else
+   		{	
+   			agios_compte.style.display = "none";
+   			duree_blocage_compte.style.display ="block";
+   			frais_ouverture_compte.style.display = "block";
+            montant_remuneration_compte.style.display ="block";
+   			
+   		   return true;
+   		}
+      }
 
-      return false;
-   }
-   else
-   {
-			erreur_selection.innerText = "";
-	      champ.style.border = "";
-   	if (champ.selectedIndex == 1)
-	   {
-   		frais_ouverture_compte.style.display ="block";
-         montant_remuneration_compte.style.display ="block";
-   		agios_compte.style.display ="none";
-   		duree_blocage_compte.style.display ="none";
-	   		
-		   return true;
-	   }
-	   else if (champ.selectedIndex == 2)
-   {
-   		frais_ouverture_compte.style.display ="none";
-         montant_remuneration_compte.style.display ="none";
-   		duree_blocage_compte.style.display ="none";
-   		agios_compte.style.display ="block";
-	   		
-		   return true;
-	   }
-		else
-		{	
-			agios_compte.style.display ="none";
-			duree_blocage_compte.style.display ="block";
-			frais_ouverture_compte.style.display = "block";
-         montant_remuneration_compte.style.display ="block";
-			
-		   return true;
-		}
-   }
-
-   	
-}
+})
 
 var type_compte = document.getElementById('type_compte');
 var duree_blocage = document.getElementById('duree_blocage');
@@ -440,11 +440,11 @@ function verifie_formulaire_salarie(form)
    var nom_entrepriseOk = verifie_nom_entreprise(form.nom_entreprise);
    var adresse_entrepriseOk = verifie_adresse_entreprise(form.adresse_entreprise);
    var nom_employeurOK = verifie_nom_employeur(form.nom_employeur);
-   var type_compteOk = verifie_type_compte(form.type_compte);
+   //var type_compteOk = verifie_type_compte(form.type_compte);
    var dureeOk = verification_duree_blocage();
 
    if(nomOk && prenomOk && adresseOk  &&  telephoneOk && mailOk && professionOk && salaireOk && nom_entrepriseOk 
-   	&& adresse_entrepriseOk && nom_employeurOK && type_compteOk && dureeOk)
+   	&& adresse_entrepriseOk && nom_employeurOK && /*type_compteOk &&*/ dureeOk)
    {
    		//alert("Informations enregistrées");
       	return true;
@@ -466,10 +466,10 @@ function verifie_formulaire_non_salarie(form)
    var adresseOk = verifie_adresse(form.adresse);
    var telephoneOk = verifie_telephone(form.telephone);
    var mailOk = verifie_email(form.email);
-   var type_compteOk = verifie_type_compte(form.type_compte);
+   //var type_compteOk = verifie_type_compte(form.type_compte);
    var dureeOk = verification_duree_blocage();
 
-   if(nomOk && prenomOk && adresseOk  &&  telephoneOk && mailOk && type_compteOk && dureeOk)
+   if(nomOk && prenomOk && adresseOk  &&  telephoneOk && mailOk /*&& type_compteOk*/ && dureeOk)
    {
       	//alert("Informations enregistrées");
       	return true;
@@ -491,10 +491,10 @@ function verifie_formulaire_entreprise(form)
    var telephoneOk = verifie_telephone(form.telephone);
    var mailOk = verifie_email(form.email);
    /*var identifiant_entrepriseOK = verifie_identifiant_entreprise(form.identifiant_entreprise);*/
-   var type_compteOk = verifie_type_compte(form.type_compte);
+   //var type_compteOk = verifie_type_compte(form.type_compte);
    var dureeOk = verification_duree_blocage();
 
-   if(nom_entrepriseOk && adresse_entrepriseOk && telephoneOk && mailOk && /*identifiant_entrepriseOK &&*/ type_compteOk && dureeOk)
+   if(nom_entrepriseOk && adresse_entrepriseOk && telephoneOk && mailOk && /*identifiant_entrepriseOK && type_compteOk &&*/ dureeOk)
    {
       	//alert("Informations enregistrées");
       	return true;

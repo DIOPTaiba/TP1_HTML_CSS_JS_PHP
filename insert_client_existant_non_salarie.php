@@ -7,7 +7,7 @@ include("connexion_bdd_bp.php");
 echo $_POST['type_compte'];
 echo $_POST['id_responsable_compte'];
 // Insertion des infos dana clients à l'aide d'une requête préparée
-$req = $bdd->prepare('INSERT INTO clients (adresse, telephone, email, date_inscription, type_client, id_responsable_compte) VALUES(:adresse, :telephone, :email, NOW(), :type_client, :id_responsable_compte)');
+/*$req = $bdd->prepare('INSERT INTO clients (adresse, telephone, email, date_inscription, type_client, id_responsable_compte) VALUES(:adresse, :telephone, :email, NOW(), :type_client, :id_responsable_compte)');
 $req->execute(array(
 	'adresse' => $_POST['adresse'],
 	'telephone' => $_POST['telephone'],
@@ -17,6 +17,7 @@ $req->execute(array(
 ));
 
 $req->closeCursor();
+
 
 //insertion des onfos dans client_non_salarie
 $req = $bdd->prepare('INSERT INTO client_non_salarie (nom, prenom, carte_identite, id_clients) VALUES(:nom, :prenom, :carte_identite, :id_clients)');
@@ -29,6 +30,8 @@ $req->execute(array(
 
 	$req->closeCursor();
 
+*/
+	
 $req = $bdd->prepare('INSERT INTO comptes (numero_compte, cle_rib, solde, date_ouverture, numero_agence, id_clients) VALUES(:numero_compte, :cle_rib, :solde, NOW(), :numero_agence, :id_clients)');
 $req->execute(array(
 	'numero_compte' => $_POST['numero_compte'],

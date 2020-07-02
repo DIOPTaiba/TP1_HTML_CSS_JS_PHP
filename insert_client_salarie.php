@@ -91,7 +91,7 @@ else
 
 echo "Les informations sont bien enregistrées";
 
-// Redirection du visiteur vers la page d'accueil index.html
+// Redirection du visiteur vers la page d'accueil accueil_responsable
 
 header('Location: accueil_responsable.php');
 

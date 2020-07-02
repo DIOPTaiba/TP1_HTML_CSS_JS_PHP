@@ -23,7 +23,7 @@
 
 			</div>
 			<form id="saisie_id_client" action="recherche_client_non_salarie.php" method="POST" >
-				<input type="search" id="id_client" name="id_client" placeholder="identifiant client" />
+				<input type="search" id="identifiant_client" name="identifiant_client" placeholder="identifiant client" />
 				<input type="submit" name="search" id="search" value="Search" /> 
 			</form>
 		</div>
@@ -74,10 +74,10 @@
 			<fieldset>
 				<legend>Informations Compte</legend>
 					<label class="selection_type_compte">Sélectionnez le type de compte <em>*</em></label>
-					<select id="type_compte" name="type_compte" onchange ="verifie_type_compte(this)">
-					<option>Type de compte</option>
+					<select id="type_compte" name="type_compte" >
+					<option value="non selection">Type de compte</option>
 					<option value="compte epargne">Compte Epargne</option>
-					<option value="compte courant">Compte Courant</option>
+					<!--<option value="compte courant">Compte Courant</option>-->
 					<option id="compte_bloque" value="compte bloque" onselect="verification_duree_blocage(this)">Compte Bloqué</option>
 					</select>
 					<span id="erreur_selection"></span>
