@@ -60,60 +60,57 @@
 
 				<div>
 					<label for="nom">Nom <em>*</em></label>
-					<input type="text" id="nom" name="nom" value="<?php echo $resultat['nom'] ?>" onblur="verifie_nom(this)" />
+					<input type="text" id="nom" name="nom" value="<?php echo $resultat['nom'] ?>" readonly />
 				</div>
 				<div>
 					<label for="prenom">Prénom <em>*</em></label>
-					<input type="text" id="prenom" name="prenom" value="<?php echo $resultat['prenom'] ?>" onblur="verifie_prenom(this)" />
+					<input type="text" id="prenom" name="prenom" value="<?php echo $resultat['prenom'] ?>" readonly />
 				</div>
 				<div>
 					<label for="adresse">Adresse <em>*</em></label>
-					<input type="text" id="adresse" name="adresse" value="<?php echo $resultat['adresse'] ?>"
-						onblur="verifie_adresse(this)" />
+					<input type="text" id="adresse" name="adresse" value="<?php echo $resultat['adresse'] ?>" readonly />
 				</div>
 				<div>
 					<label for="telephone">Tel <em>*</em></label>
-					<input type="tel" id="telephone" name="telephone" value="<?php echo $resultat['telephone'] ?>" onblur="verifie_telephone(this)" />
+					<input type="tel" id="telephone" name="telephone" value="<?php echo $resultat['telephone'] ?>" readonly />
 				</div>
 				<div>
 					<label for="email">E-mail </label>
-					<input type="text" id="email" name="email" value="<?php echo $resultat['email'] ?>"
-						onblur="verifie_email(this)" />
+					<input type="text" id="email" name="email" value="<?php echo $resultat['email'] ?>" readonly />
 				</div>
 				<div>
 					<label for="carte_identite">CNI </label>
-					<input type="text" id="carte_identite" name="carte_identite" value="<?php echo $resultat['carte_identite'] ?>" />
+					<input type="text" id="carte_identite" name="carte_identite" value="<?php echo $resultat['carte_identite'] ?>" readonly />
 				</div>
 				<div>
 					<label for="profession">Profession </label>
-					<input type="text" id="profession" name="profession" value="<?php echo $resultat['profession'] ?>"	onblur="verifie_profession(this)" />
+					<input type="text" id="profession" name="profession" value="<?php echo $resultat['profession'] ?>"	readonly />
 				</div>
 				<div>
 					<label for="salaire">Salaire <em>*</em></label>
-					<input type="text" id="salaire" name="salaire" value="<?php echo $resultat['salaire'] ?>" onblur="verifie_salaire(this)" />
+					<input type="text" id="salaire" name="salaire" value="<?php echo $resultat['salaire'] ?>" readonly />
 				</div>
 				<div>
 					<label for="nom_employeur">Nom Employeur <em>*</em></label>
-					<input type="text" id="nom_employeur" name="nom_employeur" value="<?php echo $resultat['nom_employeur'] ?>" onblur="verifie_nom_employeur(this)" />
+					<input type="text" id="nom_employeur" name="nom_employeur" value="<?php echo $resultat['nom_employeur'] ?>" readonly />
 				</div>
 				<div>
 					<label for="adresse_entreprise">Adresse Entreprise <em>*</em></label>
 					<input type="text" id="adresse_entreprise" name="adresse_entreprise"
-						value="<?php echo $resultat['adresse_entreprise'] ?>" onblur="verifie_adresse_entreprise(this)" />
+						value="<?php echo $resultat['adresse_entreprise'] ?>" readonly />
 				</div>
 				<div>
 					<label for="raison_social">Raison Social <em>*</em></label>
-					<input type="text" id="raison_social" name="raison_social" value="<?php echo $resultat['raison_social'] ?>"
-						onblur="verifie_nom_entreprise(this)" />
+					<input type="text" id="raison_social" name="raison_social" value="<?php echo $resultat['raison_social'] ?>" readonly />
 				</div>
 				<div>
 					<label for="identifiant_entreprise">Identifiant Entreprise <em>*</em></label>
 					<input type="text" id="identifiant_entreprise" name="identifiant_entreprise"
-						value="<?php echo $resultat['identifiant_entreprise'] ?>" />
+						value="<?php echo $resultat['identifiant_entreprise'] ?>" readonly />
 				</div>
 				<div>
 					<label for="type_client">Type client </label>
-					<input type="text" id="type_client" name="type_client" value="<?php echo $resultat['type_client'] ?>" />
+					<input type="text" id="type_client" name="type_client" value="<?php echo $resultat['type_client'] ?>" readonly />
 				</div>
 				<!--
 				<div>

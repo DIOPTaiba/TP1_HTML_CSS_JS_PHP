@@ -51,31 +51,31 @@
 				<legend>Informations du Client</legend>
 				<div>
 					<label for="nom">Nom <em>*</em></label>
-					<input type="text" id="nom" name="nom" value="<?php echo $resultat['nom'] ?>"  onblur="verifie_nom(this)" />
+					<input type="text" id="nom" name="nom" value="<?php echo $resultat['nom'] ?>"  readonly />
 				</div>
 				<div>
 					<label for="prenom">Prénom <em>*</em></label>
-					<input type="text" id="prenom" name="prenom" value="<?php echo $resultat['prenom'] ?>" onblur="verifie_prenom(this)"/>
+					<input type="text" id="prenom" name="prenom" value="<?php echo $resultat['prenom'] ?>" readonly />
 				</div>
 				<div>
 					<label for="adresse">Adresse <em>*</em></label>
-					<input type="text" id="adresse" name="adresse" value="<?php echo $resultat['adresse'] ?>" onblur="verifie_adresse(this)"/>
+					<input type="text" id="adresse" name="adresse" value="<?php echo $resultat['adresse'] ?>" readonly />
 				</div>
 				<div>
 					<label for="telephone">Tel <em>*</em></label>
-					<input type="tel" id="telephone" name="telephone" value="<?php echo $resultat['telephone'] ?>" onblur="verifie_telephone(this)"/>
+					<input type="tel" id="telephone" name="telephone" value="<?php echo $resultat['telephone'] ?>" readonly />
 				</div>
 				<div>
 					<label for="email">E-mail </label>
-					<input type="text" id="email" name="email" value="<?php echo $resultat['email'] ?>" onblur="verifie_email(this)" />
+					<input type="text" id="email" name="email" value="<?php echo $resultat['email'] ?>" readonly />
 				</div>
 				<div>
 					<label for="carte_identite">CNI </label>
-					<input type="text" id="carte_identite" name="carte_identite" value="<?php echo $identifiant_client ?>" />
+					<input type="text" id="carte_identite" name="carte_identite" value="<?php echo $identifiant_client ?>" readonly />
 				</div>
 				<div>
 					<label for="type_client">Type client </label>
-					<input type="text" id="type_client" name="type_client" value="<?php echo $resultat['type_client'] ?>" />
+					<input type="text" id="type_client" name="type_client" value="<?php echo $resultat['type_client'] ?>" readonly />
 				</div>
 				<!--
 				<div>

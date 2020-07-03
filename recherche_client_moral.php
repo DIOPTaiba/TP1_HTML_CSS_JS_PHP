@@ -52,36 +52,35 @@
 				<legend>Informations du Client</legend>
 				<div>
 					<label for="nom_entreprise">Nom Entreprise <em>*</em></label>
-					<input type="text" id="nom_entreprise" name="nom_entreprise" value="<?php echo $resultat['nom_entreprise'] ?>" onblur="verifie_nom_entreprise(this)"/>
+					<input type="text" id="nom_entreprise" name="nom_entreprise" value="<?php echo $resultat['nom_entreprise'] ?>" readonly />
 				</div>
 				<div>
 					<label for="raison_social">Raison Social <em>*</em></label>
-					<input type="text" id="raison_social" name="raison_social" value="<?php echo $resultat['raison_social'] ?>"
-						onblur="verifie_nom_entreprise(this)" />
+					<input type="text" id="raison_social" name="raison_social" value="<?php echo $resultat['raison_social'] ?>" readonly />
 				</div>
 				<div>
 					<label for="adresse">Adresse Entreprise <em>*</em></label>
-					<input type="text" id="adresse" name="adresse" value="<?php echo $resultat['adresse'] ?>" onblur="verifie_adresse_entreprise(this)"/>
+					<input type="text" id="adresse" name="adresse" value="<?php echo $resultat['adresse'] ?>" readonly />
 				</div>
 				<div>
 					<label for="telephone">Tel <em>*</em></label>
-					<input type="tel" id="telephone" name="telephone" value="<?php echo $resultat['telephone'] ?>" onblur="verifie_telephone(this)"/>
+					<input type="tel" id="telephone" name="telephone" value="<?php echo $resultat['telephone'] ?>" readonly />
 				</div>
 				<div>
 					<label for="email">E-mail </label>
-					<input type="text" id="email" name="email" value="<?php echo $resultat['email'] ?>" onblur="verifie_email(this)" />
+					<input type="text" id="email" name="email" value="<?php echo $resultat['email'] ?>" readonly />
 				</div>
 				<div>
 					<label for="identifiant_entreprise">Identifiant Entreprise <em>*</em></label>
-					<input type="text" id="identifiant_entreprise" name="identifiant_entreprise" value="<?php echo $resultat['identifiant_entreprise'] ?>" onblur="verifie_identifiant_entreprise(this)"/>
+					<input type="text" id="identifiant_entreprise" name="identifiant_entreprise" value="<?php echo $resultat['identifiant_entreprise'] ?>" readonly />
 				</div>
 				<div>
 					<label for="date_inscription">Date Inscription </label>
-					<input type="text" id="date_inscription" name="date_inscription" value="<?php echo $resultat['date_inscription'] ?>" onblur="verifie_email(this)" />
+					<input type="text" id="date_inscription" name="date_inscription" value="<?php echo $resultat['date_inscription'] ?>" readonly />
 				</div>
 				<div>
 					<label for="type_client">Type client </label>
-					<input type="text" id="type_client" name="type_client" value="<?php echo $resultat['type_client'] ?>" />
+					<input type="text" id="type_client" name="type_client" value="<?php echo $resultat['type_client'] ?>" readonly />
 				</div>
 			<!--
 				<div>
