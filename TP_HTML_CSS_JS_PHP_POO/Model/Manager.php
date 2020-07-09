@@ -35,8 +35,11 @@
 			$test = $this->_db->prepare('SELECT id_clients FROM client_non_salarie WHERE carte_identite = ? ');
 			$test->execute(array($identifiant_client));
 
-			$reponse = $test->fetch();
-			return $reponse['id_clients'];
+			//$reponse = $test->fetch();
+			if($reponse = $test->fetch())
+			{
+				return $reponse['id_clients'];
+			}
 		}
 
 		public function verifieClientSalarieExiste($identifiant_client)
@@ -44,8 +47,11 @@
 			$test = $this->_db->prepare('SELECT id_clients FROM client_salarie WHERE carte_identite = ? ');
 			$test->execute(array($identifiant_client));
 
-			$reponse = $test->fetch();
-			return $reponse['id_clients'];
+			//$reponse = $test->fetch();
+			if($reponse = $test->fetch())
+			{
+				return $reponse['id_clients'];
+			}
 		}
 
 		public function verifieClientMoralExiste($identifiant_entreprise)
@@ -53,8 +59,11 @@
 			$test = $this->_db->prepare('SELECT id_clients FROM client_moral  WHERE identifiant_entreprise = ?');
 			$test->execute(array($identifiant_entreprise));
 
-			$reponse = $test->fetch();
-			return $reponse['id_clients'];
+			//$reponse = $test->fetch();
+			if($reponse = $test->fetch())
+			{
+				return $reponse['id_clients'];
+			}
 		}
 
 		public function addClients(Clients $clients)
