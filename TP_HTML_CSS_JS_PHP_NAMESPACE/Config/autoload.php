@@ -9,14 +9,13 @@
         static function autoload($class)
         {
             //str_replace(search, replace, subject) remplace search par replace dans subject
-            $b = str_replace("\\", "/",$class.".php");
-            echo __DIR__.$b;
-            $full = str_replace("Config", "", __DIR__.$b);
-            echo $full;
-            die();
-             if (file_exists($full))
+            $fichier = str_replace("\\", "/",$class.".php");
+            //echo __DIR__.$fichier;
+            $cheminAbsolu = str_replace("Config", "", __DIR__.$fichier);
+            
+             if (file_exists($cheminAbsolu))
             {
-                require_once $full;
+                require_once $cheminAbsolu;
             }
 
              

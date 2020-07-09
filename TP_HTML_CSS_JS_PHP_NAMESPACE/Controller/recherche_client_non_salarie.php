@@ -18,6 +18,8 @@
 		include ("../Model/connexion_bdd_bp.php");
 		require ("../Model/Manager.php");
 
+		use Model\Manager;
+
 		$manager = new Manager($db);
 
 		extract($_POST);

@@ -17,6 +17,8 @@
 		// Connexion à la base de données
 		include ("../Model/connexion_bdd_bp.php");
 		require ("../Model/Manager.php");
+		
+		use Model\Manager;
 
 		$manager = new Manager($db);
 
@@ -159,7 +161,7 @@
 		}
 		else{
 			echo 'Aucun client trouvé pour cet identifiant : '. $identifiant_client . '<br />';
-			echo '<a href="compte_client_salarie.php">Réessayer</a>';
+			echo '<a href="../View/compte_client_salarie.php">Réessayer</a>';
 		}
 
 		

@@ -1,8 +1,17 @@
 <?php
 
 	// Connexion à la base de données
-	require_once "../Config/autoload.php";
 	require_once ("../Model/connexion_bdd_bp.php");
+	require_once "../Config/autoload.php";
+	
+	use Model\Manager;
+	use Controller\Clients;
+	use Controller\ClientSalarie;
+	use Controller\Comptes;
+	use Controller\EtatCompte;
+	use Controller\CompteCourant;
+
+
 
 	$manager = new Manager($db);
 

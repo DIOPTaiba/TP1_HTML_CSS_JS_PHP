@@ -3,6 +3,13 @@
 	require_once "../Config/autoload.php";
 	require_once ("../Model/connexion_bdd_bp.php");
 
+	use Model\Manager;
+	use Controller\Clients;
+	use Controller\ClientMoral;
+	use Controller\Comptes;
+	use Controller\EtatCompte;
+	use Controller\CompteEpargne;
+
 	$manager = new Manager($db);
 
 	extract($_POST);

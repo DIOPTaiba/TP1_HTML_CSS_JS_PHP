@@ -10,6 +10,13 @@
 	// require_once ("compteEpargne.class.php");
 	// require_once ("compteBloque.class.php");
 
+	use Model\Manager;
+	use Controller\Clients;
+	use Controller\ClientNonSalarie;
+	use Controller\Comptes;
+	use Controller\EtatCompte;
+	use Controller\CompteBloque;
+
 	$manager = new Manager($db);
 
 	extract($_POST);

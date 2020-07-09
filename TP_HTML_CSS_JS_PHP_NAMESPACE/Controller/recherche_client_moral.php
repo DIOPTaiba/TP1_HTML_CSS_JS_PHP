@@ -18,6 +18,8 @@
 		include ("../Model/connexion_bdd_bp.php");
 		require ("../Model/Manager.php");
 
+		use Model\Manager;
+
 		$manager = new Manager($db);
 
 		extract($_POST);
@@ -136,7 +138,7 @@
 		}
 		else{
 			echo 'Aucun client trouvé pour cet identifiant : '. $identifiant_entreprise . '<br />';
-			echo '<a href="compte_client_moral.php">Réessayer</a>';
+			echo '<a href="../View/compte_client_moral.php">Réessayer</a>';
 		}
 
 	
