@@ -41,5 +41,6 @@
 		// public function setIdClient($id_clients) 
 		// { 
 		// 	$this->id_clients = $id_clients; 
-		}
+		// }
+	}
 	
