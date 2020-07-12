@@ -15,7 +15,7 @@
 
 	<div class="choix_profil">
 
-		<button id="page_authentification_admin" onclick ="affiche_authentification_admin()" >Aministrateur</button>
+		<button id="page_authentification_admin" onclick ="affiche_authentification_admin()" >Administrateur</button>
 
 		<button id="page_authentification_responsable" onclick="affiche_authentification_responsable()">Responsable Compte</button>
 

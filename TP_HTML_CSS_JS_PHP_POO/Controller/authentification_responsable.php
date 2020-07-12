@@ -19,8 +19,7 @@
 
 	if ($manager->verifieUserExiste($responsable_compte)) 
 	{
-		seudo;
-
+		
 		echo 'Vous êtes connecté !';
 		// Redirection de l'utilisateur vers la page d'accueil accueil_responsable.php
 		header('Location: ../View/accueil_responsable.php');

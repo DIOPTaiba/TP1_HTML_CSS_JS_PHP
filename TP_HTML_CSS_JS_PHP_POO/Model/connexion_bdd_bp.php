@@ -4,7 +4,12 @@
     // {
         try
         {
-            $db = new PDO('mysql:host=localhost;dbname=banque_peuple', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        	$dsn = 'mysql:host=localhost;dbname=banque_peuple';
+        	$username = 'root';
+        	$password = '';
+        	$options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+
+            $db = new PDO($dsn, $username, $password, $options);
         }
         catch (Exception $e)
         {

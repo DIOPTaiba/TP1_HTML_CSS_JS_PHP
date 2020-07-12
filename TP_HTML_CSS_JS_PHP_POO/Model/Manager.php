@@ -1,6 +1,6 @@
 <?php
 
-	require_once ("connexion_bdd_bp.php");
+	//require_once ("connexion_bdd_bp.php");
 	class Manager
 	{
 
