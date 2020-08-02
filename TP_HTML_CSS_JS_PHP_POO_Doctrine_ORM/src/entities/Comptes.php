@@ -1,6 +1,6 @@
 <?php
 
-	//use Doctrine\Common\Collections\ArrayCollection;
+	use Doctrine\Common\Collections\ArrayCollection;
 	use Doctrine\ORM\Mapping as ORM;
 	/**
 	 * @ORM\Entity @ORM\Table(name="comptes")
@@ -26,16 +26,16 @@
 		*/
 		private $id_clients;
 		/**
-		 * Many comptes have one etat_compte. This is the owning side.
-		 * @ORM\ManyToOne(targetEntity="EtatCompte", inversedBy="id_comptes")
-		 * @ORM\JoinColumn(name="id_etat_compte", referencedColumnName="id")
-		*/
+		 * Many Comptes have Many etats.
+		 * @ORM\ManyToMany(targetEntity="EtatCompte", inversedBy="id_comptes")
+		 * @ORM\JoinTable(name="comptes_etats")
+		 */
 		private $id_etat_compte;
 
 
 		public function __construct()
 		{
-			
+			$this->id_etat_compte = new ArrayCollection();
 		}
 
 		//Définition des gett
@@ -46,6 +46,7 @@
 		public function getNumeroAgence() { return $this->numero_agence; }
 		public function getDateOuverture() { return $this->date_ouverture; }
 		public function getIdClients() { return $this->id_clients; }
+		public function getIdEtatCompte() { return $this->id_etat_compte; }
 
 		//Définition des Setteurs
 		// public function setId($id) 
@@ -75,12 +76,17 @@
 
 		public function setDateOuverture($date_ouverture) 
 		{ 
-			$this->date_ouverture = $date_ouverture; 
+			$this->date_ouverture =  new \DateTime($date_ouverture); 
 		}
 		
 		public function setIdClients($id_clients) 
 		{ 
 			$this->id_clients = $id_clients; 
+		}
+		public function setIdEtatCompte(EtatCompte $id_etat_compte) 
+		{ 
+			$this->id_etat_compte[] = $id_etat_compte;
+			return $this;
 		}
 	
 

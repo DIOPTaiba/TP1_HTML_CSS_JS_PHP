@@ -78,7 +78,7 @@
 
 		public function setDateInscription($date_inscription) 
 		{ 
-			$this->date_inscription = $date_inscription; 
+			$this->date_inscription = new \DateTime($date_inscription); 
 		}
 		
 		public function setIdResponsableCompte($id_responsable_compte) 

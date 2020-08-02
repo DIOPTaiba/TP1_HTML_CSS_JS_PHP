@@ -26,7 +26,7 @@
 	<div id="page_authentification">
 
 		
-		<form id="formulaire_admin" action="Controller/authentification_admin.php" method="POST" onsubmit="return controle_champs_admin()">
+		<form id="formulaire_admin" action="src/Controller/authentification_admin.php" method="POST" onsubmit="return controle_champs_admin()">
 			<fieldset>
 			<legend><h3>Authentification Administrateur</h3></legend>
 				<label for="login_admin">Login<em>*</em></label>
@@ -43,7 +43,7 @@
 
 		</form>
 
-		<form id="formulaire_responsable" action="Controller/authentification_responsable.php" method="POST" onsubmit="return controle_champs_responsable()">
+		<form id="formulaire_responsable" action="src/Controller/authentification_responsable.php" method="POST" onsubmit="return controle_champs_responsable()">
 			<fieldset>
 				<legend><h3>Authentification Responsable</h3></legend>
 				<label for="login_responsable">Login<em>*</em></label>
@@ -59,7 +59,7 @@
 
 		</form>
 
-		<form id="formulaire_caissiere" action="Controller/authentification_caissiere.php" method="POST" onsubmit="return controle_champs_caissiere()">
+		<form id="formulaire_caissiere" action="src/Controller/authentification_caissiere.php" method="POST" onsubmit="return controle_champs_caissiere()">
 			<fieldset>
 				<legend><h3>Authentification Caissière</h3></legend>
 				<label for="login_caissiere">Login<em>*</em></label>

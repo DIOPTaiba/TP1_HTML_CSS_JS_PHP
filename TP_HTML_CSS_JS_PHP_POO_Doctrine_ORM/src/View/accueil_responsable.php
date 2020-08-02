@@ -3,7 +3,7 @@
 <head>
 	<title>Ouverture Compte Bancaire</title>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" type="text/css" href="../Public/script_index.css" />
+	<link rel="stylesheet" type="text/css" href="../../Public/script_index.css" />
 </head>
 <body>
 
@@ -24,7 +24,7 @@
 
 	</div>
 
-	<script type="text/javascript" src="../Public/script_index.js"></script>
+	<script type="text/javascript" src="../../Public/script_index.js"></script>
 
 </body>
 </html>

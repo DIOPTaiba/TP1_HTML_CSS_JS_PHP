@@ -15,10 +15,10 @@
 	<?php
 
 		// Connexion à la base de données
-		include ("../Model/connexion_bdd_bp.php");
+		/* include ("../Model/connexion_bdd_bp.php");
 		require ("../Model/Manager.php");
-
-		$manager = new Manager($db);
+		$manager = new Manager($db); */
+		require_once "../../bootstrap.php";
 
 		extract($_POST);
 		

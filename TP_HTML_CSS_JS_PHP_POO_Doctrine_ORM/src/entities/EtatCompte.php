@@ -14,15 +14,15 @@
 		/** @ORM\Column(type="datetime") **/
 		private $date_changement_etat;
 		/**
-		 * One etat_compte has many comptes. This is the inverse side.
-		 * @ORM\OneToMany(targetEntity="Comptes", mappedBy="id_etat_compte")
-		*/
+     	* Many etats have Many comptes.
+     	* @ORM\ManyToMany(targetEntity="Comptes", mappedBy="id_etat_compte")
+     	*/
 		private $id_comptes;
 
 
 		public function __construct()
 		{
-			$this->id_comptes = new ArrayCollection();
+			//$this->id_comptes = new ArrayCollection();
 		}
 
 		//Définition des gett
@@ -44,12 +44,13 @@
 
 		public function setDateChangementEtat($date_changement_etat) 
 		{ 
-			$this->date_changement_etat = $date_changement_etat; 
+			$this->date_changement_etat =  new \DateTime($date_changement_etat); 
 		}
 		
-		public function setIdComptes($id_comptes) 
+		public function setIdComptes(Comptes $id_comptes) 
 		{ 
-			$this->id_comptes = $id_comptes; 
+			$this->id_comptes [] = $id_comptes;
+			//return $this;
 		}
 	
 

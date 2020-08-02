@@ -38,7 +38,7 @@
 		public function getNom() { return $this->nom; }
 		public function getPrenom() { return $this->prenom; }
 		public function getCarteIdentite() { return $this->carte_identite; }
-		public function getIdClient() { return $this->id_clients; }
+		public function getIdClients() { return $this->id_clients; }
 
 		// public function setId($id) 
 		// { 
@@ -60,7 +60,7 @@
 			$this->carte_identite = $carte_identite; 
 		}
 
-		public function setIdClient($id_clients) 
+		public function setIdClients($id_clients) 
 		{ 
 			$this->id_clients = $id_clients; 
 		}

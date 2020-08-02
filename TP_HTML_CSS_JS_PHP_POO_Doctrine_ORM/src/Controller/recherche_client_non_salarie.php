@@ -3,7 +3,7 @@
 <head>
 	<title>Page d'accueil Employés</title>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" type="text/css" href="../Public/script_index.css" />
+	<link rel="stylesheet" type="text/css" href="../../Public/script_index.css" />
 </head>
 <body>
 
@@ -15,21 +15,40 @@
 	<?php
 
 		// Connexion à la base de données
-		include ("../Model/connexion_bdd_bp.php");
-		require ("../Model/Manager.php");
-
-		$manager = new Manager($db);
+		/* include ("../Model/connexion_bdd_bp.php");
+		require ("../Model/Manager.php"); */
+		//$manager = new Manager($db);
+		require_once "../../bootstrap.php";
 
 		extract($_POST);
-		
 
-		if($id_clients = $manager->verifieClientNonSalarieExiste($identifiant_client))
+		$clientsNonSalarie = $entityManager->getRepository('ClientNonSalarie')->findBy(
+			array('carte_identite' => $identifiant_client));
+		if($clientsNonSalarie != null)
 		{
-
-			$resultat = $manager->getInfoNonSalarie($identifiant_client);
-
-			
-				echo "id_client". $id_clients;
+			foreach($clientsNonSalarie as $clientNonSalarie)
+			{
+				$id_clientNonSalarie = $clientNonSalarie->getId();
+				$nom = $clientNonSalarie->getNom();
+				$prenom = $clientNonSalarie->getPrenom();
+				$id_clients = $clientNonSalarie->getIdClients()->getId();
+				
+			}
+			$clients = $entityManager->getRepository('Clients')->findBy(
+				array('id' => $id_clients));
+			foreach($clients as $client)
+			{
+				$adresse = $client->getAdresse();
+				$telephone = $client->getTelephone();
+				$email = $client->getEmail();
+				$type_client = $client->getTypeClient();
+			}
+		}
+		else
+		{
+			echo "Désolé ce client n'existe pas veillez vérifier svp";
+		}
+		
 	?>
 
 		<form id="form_insert_client_existant_non_salarie" action="insert_compte_client_existant.php" method="post" onsubmit="return verifie_formulaire_non_salarie(this)">
@@ -39,23 +58,23 @@
 				<legend>Informations du Client</legend>
 				<div>
 					<label for="nom">Nom <em>*</em></label>
-					<input type="text" id="nom" name="nom" value="<?php echo $resultat['nom'] ?>"  readonly />
+					<input type="text" id="nom" name="nom" value="<?php echo $nom ?>"  readonly />
 				</div>
 				<div>
 					<label for="prenom">Prénom <em>*</em></label>
-					<input type="text" id="prenom" name="prenom" value="<?php echo $resultat['prenom'] ?>" readonly />
+					<input type="text" id="prenom" name="prenom" value="<?php echo $prenom ?>" readonly />
 				</div>
 				<div>
 					<label for="adresse">Adresse <em>*</em></label>
-					<input type="text" id="adresse" name="adresse" value="<?php echo $resultat['adresse'] ?>" readonly />
+					<input type="text" id="adresse" name="adresse" value="<?php echo $adresse ?>" readonly />
 				</div>
 				<div>
 					<label for="telephone">Tel <em>*</em></label>
-					<input type="tel" id="telephone" name="telephone" value="<?php echo $resultat['telephone'] ?>" readonly />
+					<input type="tel" id="telephone" name="telephone" value="<?php echo $telephone ?>" readonly />
 				</div>
 				<div>
 					<label for="email">E-mail </label>
-					<input type="text" id="email" name="email" value="<?php echo $resultat['email'] ?>" readonly />
+					<input type="text" id="email" name="email" value="<?php echo $email ?>" readonly />
 				</div>
 				<div>
 					<label for="carte_identite">CNI </label>
@@ -63,12 +82,13 @@
 				</div>
 				<div>
 					<label for="type_client">Type client </label>
-					<input type="text" id="type_client" name="type_client" value="<?php echo $resultat['type_client'] ?>" readonly />
+					<input type="text" id="type_client" name="type_client" value="<?php echo $type_client ?>" readonly />
+				</div>
+				<div>
+					<input type="hidden" id="id_clients" name="id_clients" value="<?php echo $id_clients ?>" readonly />
 				</div>
 				
-				<div>
-					<input type="hidden" id="id_clients" name="id_clients" value="<?php echo $id_clients ?>"/>
-				</div>
+				
 			
 
 			</fieldset>
@@ -131,16 +151,15 @@
 
 	<?php
 
-		}
-		else{
+		//}
+		/* else{
 			echo 'Aucun client trouvé pour cet identifiant : '. $identifiant_client . '<br />';
 			echo '<a href="../View/compte_client_non_salarie.php">Réessayer</a>';
-		}
+		} */
 
 
 	?>
-
 	
-	<script type="text/javascript" src="../Public/script_index.js"></script>
+	<script type="text/javascript" src="../../Public/script_index.js"></script>
 </body>
 </html>

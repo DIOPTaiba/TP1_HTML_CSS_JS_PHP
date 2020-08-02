@@ -3,7 +3,7 @@
 <head>
 	<title>Page d'accueil Employés</title>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" type="text/css" href="../Public/script_index.css" />
+	<link rel="stylesheet" type="text/css" href="../../Public/script_index.css" />
 </head>
 <body>
 
@@ -14,21 +14,44 @@
 
 	<?php
 
-		// Connexion à la base de données
-		include ("../Model/connexion_bdd_bp.php");
-		require ("../Model/Manager.php");
-
-		$manager = new Manager($db);
+		require_once "../../bootstrap.php";
 
 		extract($_POST);
 
-		if($id_clients = $manager->verifieClientSalarieExiste($identifiant_client))
+		$clientsSalarie = $entityManager->getRepository('ClientSalarie')->findBy(
+			array('carte_identite' => $identifiant_client));
+		if($clientsSalarie != null)
 		{
+			foreach($clientsSalarie as $clientSalarie)
+			{
+				$id_clientSalarie = $clientSalarie->getId();
+				$nom = $clientSalarie->getNom();
+				$prenom = $clientSalarie->getPrenom();
+				$profession = $clientSalarie->getProfession();
+				$salaire = $clientSalarie->getSalaire();
+				$nom_employeur = $clientSalarie->getNomEmployeur();
+				$adresse_entreprise = $clientSalarie->getAdresseEntreprise();
+				$raison_social = $clientSalarie->getRaisonSocial();
+				$identifiant_entreprise = $clientSalarie->getIdentifiantEntreprise();
+				$id_clients = $clientSalarie->getIdClients();
+				
+			}
+			$clients = $entityManager->getRepository('Clients')->findBy(
+				array('id' => $id_clients));
+			foreach($clients as $client)
+			{
+				$adresse = $client->getAdresse();
+				$telephone = $client->getTelephone();
+				$email = $client->getEmail();
+				$type_client = $client->getTypeClient();
+			}
+		}
+		else
+		{
+			echo "Désolé ce client n'existe pas veillez vérifier svp";
+		}
 
-			$resultat = $manager->getInfoSalarie($identifiant_client);
-
-			
-				echo "id_client". $id_clients;
+		
 	?>
 
 			<form id="form_insert_client_existant_salarie" action="insert_compte_client_existant.php" method="post" autocomplete="on" onsubmit="return verifie_formulaire_salarie(this)">
@@ -41,57 +64,57 @@
 
 					<div>
 						<label for="nom">Nom <em>*</em></label>
-						<input type="text" id="nom" name="nom" value="<?php echo $resultat['nom'] ?>" readonly />
+						<input type="text" id="nom" name="nom" value="<?php echo $nom ?>" readonly />
 					</div>
 					<div>
 						<label for="prenom">Prénom <em>*</em></label>
-						<input type="text" id="prenom" name="prenom" value="<?php echo $resultat['prenom'] ?>" readonly />
+						<input type="text" id="prenom" name="prenom" value="<?php echo $prenom ?>" readonly />
 					</div>
 					<div>
 						<label for="adresse">Adresse <em>*</em></label>
-						<input type="text" id="adresse" name="adresse" value="<?php echo $resultat['adresse'] ?>" readonly />
+						<input type="text" id="adresse" name="adresse" value="<?php echo $adresse ?>" readonly />
 					</div>
 					<div>
 						<label for="telephone">Tel <em>*</em></label>
-						<input type="tel" id="telephone" name="telephone" value="<?php echo $resultat['telephone'] ?>" readonly />
+						<input type="tel" id="telephone" name="telephone" value="<?php echo $telephone ?>" readonly />
 					</div>
 					<div>
 						<label for="email">E-mail </label>
-						<input type="text" id="email" name="email" value="<?php echo $resultat['email'] ?>" readonly />
+						<input type="text" id="email" name="email" value="<?php echo $email ?>" readonly />
 					</div>
 					<div>
 						<label for="carte_identite">CNI </label>
-						<input type="text" id="carte_identite" name="carte_identite" value="<?php echo $resultat['carte_identite'] ?>" readonly />
+						<input type="text" id="carte_identite" name="carte_identite" value="<?php echo $identifiant_client ?>" readonly />
 					</div>
 					<div>
 						<label for="profession">Profession </label>
-						<input type="text" id="profession" name="profession" value="<?php echo $resultat['profession'] ?>"	readonly />
+						<input type="text" id="profession" name="profession" value="<?php echo $profession ?>"	readonly />
 					</div>
 					<div>
 						<label for="salaire">Salaire <em>*</em></label>
-						<input type="text" id="salaire" name="salaire" value="<?php echo $resultat['salaire'] ?>" readonly />
+						<input type="text" id="salaire" name="salaire" value="<?php echo $salaire ?>" readonly />
 					</div>
 					<div>
 						<label for="nom_employeur">Nom Employeur <em>*</em></label>
-						<input type="text" id="nom_employeur" name="nom_employeur" value="<?php echo $resultat['nom_employeur'] ?>" readonly />
+						<input type="text" id="nom_employeur" name="nom_employeur" value="<?php echo $nom_employeur ?>" readonly />
 					</div>
 					<div>
 						<label for="adresse_entreprise">Adresse Entreprise <em>*</em></label>
 						<input type="text" id="adresse_entreprise" name="adresse_entreprise"
-							value="<?php echo $resultat['adresse_entreprise'] ?>" readonly />
+							value="<?php echo $adresse_entreprise ?>" readonly />
 					</div>
 					<div>
 						<label for="raison_social">Raison Social <em>*</em></label>
-						<input type="text" id="raison_social" name="raison_social" value="<?php echo $resultat['raison_social'] ?>" readonly />
+						<input type="text" id="raison_social" name="raison_social" value="<?php echo $raison_social ?>" readonly />
 					</div>
 					<div>
 						<label for="identifiant_entreprise">Identifiant Entreprise <em>*</em></label>
 						<input type="text" id="identifiant_entreprise" name="identifiant_entreprise"
-							value="<?php echo $resultat['identifiant_entreprise'] ?>" readonly />
+							value="<?php echo $identifiant_entreprise ?>" readonly />
 					</div>
 					<div>
 						<label for="type_client">Type client </label>
-						<input type="text" id="type_client" name="type_client" value="<?php echo $resultat['type_client'] ?>" readonly />
+						<input type="text" id="type_client" name="type_client" value="<?php echo $type_client ?>" readonly />
 					</div>
 					<div>
 						<input type="hidden" id="id_clients" name="id_clients" value="<?php echo $id_clients ?>"/>
@@ -155,20 +178,11 @@
 
 	<?php
 
-	
-		}
-		else{
-			echo 'Aucun client trouvé pour cet identifiant : '. $identifiant_client . '<br />';
-			echo '<a href="compte_client_salarie.php">Réessayer</a>';
-		}
-
 		
 
 	?>
-
-
 	
 	
-	<script type="text/javascript" src="../Public/script_index.js"></script>
+	<script type="text/javascript" src="../../Public/script_index.js"></script>
 </body>
 </html>

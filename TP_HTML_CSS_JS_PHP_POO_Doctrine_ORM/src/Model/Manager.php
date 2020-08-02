@@ -1,6 +1,8 @@
 <?php
 
 	//require_once ("connexion_bdd_bp.php");
+
+	require_once "../../bootstrap.php";
 	class Manager
 	{
 
@@ -18,16 +20,20 @@
 
 		public function verifieUserExiste(ResponsableCompte $responsable_compte)
 		{
-			$req = $this->_db->prepare('SELECT * FROM responsable_compte WHERE login = :login AND mot_de_passe = :mot_de_passe');
+			
+			/* $responsable_compte = $entityManager->getRepository('ResponsableCompte')->findBy(
+				array('login' => $login_responsable, 'mot_de_passe'  => $mot_passe_responsable)); */
+			// $req = $this->_db->prepare('SELECT * FROM responsable_compte WHERE login = :login AND mot_de_passe = :mot_de_passe');
 
-			$req->execute(array(
-				'login' => $responsable_compte->getLogin(),
-				'mot_de_passe' => $responsable_compte->getMotDePasse()
-				));
+			// $req->execute(array(
+			// 	'login' => $responsable_compte->getLogin(),
+			// 	'mot_de_passe' => $responsable_compte->getMotDePasse()
+			// 	));
 
-			return $resultat = $req->fetch();
+			// 	return $resultat = $req->fetch();
 
-			$req->closeCursor();
+			// $req->closeCursor();
+			
 		}
 
 		public function verifieClientNonSalarieExiste($identifiant_client)
@@ -92,7 +98,7 @@
 				'nom' => $clientNonSalarie->getNom(),
 				'prenom' => $clientNonSalarie->getPrenom(),
 				'carte_identite' => $clientNonSalarie->getCarteIdentite(),
-				'id_clients' => $clientNonSalarie->getIdClient()
+				'id_clients' => $clientNonSalarie->getIdClients()
 			));
 
 			$req->closeCursor();	
@@ -113,7 +119,7 @@
 			'nom_employeur' => $clientSalarie->getNomEmployeur(),
 			'adresse_entreprise' => $clientSalarie->getAdresseEntreprise(),
 			'raison_social' => $clientSalarie->getRaisonSocial(),
-			'identifiant_entreprise' => $clientSalarie->getIdentifianteEntreprise(),
+			'identifiant_entreprise' => $clientSalarie->getIdentifiantEntreprise(),
 			'id_clients' => $clientSalarie->getIdClients()
 			));	
 		}
@@ -128,7 +134,7 @@
 			'nom_entreprise' => $clientMoral->getNomEntreprise(),
 			'raison_social' => $clientMoral->getRaisonSocial(),
 			'identifiant_entreprise' => $clientMoral->getIdentifiantEntreprise(),
-			'id_clients' => $clientMoral->getIdClient()
+			'id_clients' => $clientMoral->getIdClients()
 			));
 
 			$req->closeCursor();

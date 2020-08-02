@@ -33,7 +33,7 @@
 		public function getNomEntreprise() { return $this->nom_entreprise; }
 		public function getIdentifiantEntreprise() { return $this->identifiant_entreprise; }
 		public function getRaisonSocial() { return $this->raison_social; }
-		public function getIdClient() { return $this->id_clients; }
+		public function getIdClients() { return $this->id_clients; }
 
 		// public function setId($id) 
 		// { 
@@ -55,7 +55,7 @@
 			$this->raison_social = $raison_social; 
 		}
 
-		public function setIdClient($id_clients) 
+		public function setIdClients($id_clients) 
 		{ 
 			$this->id_clients = $id_clients; 
 		}

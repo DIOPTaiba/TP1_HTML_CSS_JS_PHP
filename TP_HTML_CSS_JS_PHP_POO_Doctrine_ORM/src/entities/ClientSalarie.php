@@ -17,9 +17,9 @@
         private $carte_identite;
         /** @ORM\Column(type="string") **/
         private $profession;
-        /** @ORM\Column(type="integer") **/
-        private $salaire;
         /** @ORM\Column(type="decimal") **/
+        private $salaire;
+        /** @ORM\Column(type="string") **/
         private $nom_employeur;
         /** @ORM\Column(type="string") **/
         private $adresse_entreprise;
@@ -49,7 +49,7 @@
         public function getNomEmployeur() { return $this->nom_employeur; }
         public function getAdresseEntreprise() { return $this->adresse_entreprise; }
         public function getRaisonSocial() { return $this->raison_social; }
-        public function getIdentifianteEntreprise() { return $this->identifiant_entreprise; }
+        public function getIdentifiantEntreprise() { return $this->identifiant_entreprise; }
         public function getIdClients() { return $this->id_clients; }
 
         //Définition des setteurs
@@ -58,10 +58,10 @@
             $this->id = $id; 
         }
 
-        // public function setNom($nom) 
-        // { 
-        //     $this->nom = $nom; 
-        // }
+        public function setNom($nom) 
+        { 
+            $this->nom = $nom; 
+        }
 
         public function setPrenom($prenom) 
         { 

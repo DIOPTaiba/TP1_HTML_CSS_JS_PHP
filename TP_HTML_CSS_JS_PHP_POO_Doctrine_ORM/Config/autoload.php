@@ -9,13 +9,13 @@ class Autoloader
     static function autoload($class)
     {
         //echo $class;
-        if(file_exists("../Model/".$class.".php"))
+        if(file_exists("../src/Model/".$class.".php"))
         {
-            require_once "../Model/".$class.".php";
+            require_once "../src/Model/".$class.".php";
         }
-        else if(file_exists("../Controller/".$class.".php"))
+        else if(file_exists("../src/Controller/".$class.".php"))
         {
-            require_once "../Controller/".$class.".php";
+            require_once "../src/Controller/".$class.".php";
         }
         
     }

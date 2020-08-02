@@ -3,7 +3,7 @@
 	<head>
 		<title>Ouverture Compte Bancaire</title>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="../Public/script_index.css" />
+		<link rel="stylesheet" type="text/css" href="../../Public/script_index.css" />
 	</head>
 	<body>
 		<header>
@@ -20,15 +20,12 @@
 				<button id="client_existant" name="client_existant" onclick="affiche_client_existant()">Client
 					Existant</button>
 				<!--<label for="client_existant"></label><br>-->
-
 			</div>
 			<form id="saisie_id_client" action="../Controller/recherche_client_non_salarie.php" method="POST" >
 				<input type="search" id="identifiant_client" name="identifiant_client" placeholder="identifiant client" />
 				<input type="submit" name="search" id="search" value="Search" /> 
 			</form>
 		</div>
-
-		
 
 		<form id="form_compte_non_salarie" action="../Controller/insert_client_non_salarie.php" method="post" onsubmit="return verifie_formulaire_non_salarie(this)">
 
@@ -125,6 +122,6 @@
 
 		</form>
 
-		<script type="text/javascript" src="../Public/script_index.js"></script>
+		<script type="text/javascript" src="../../Public/script_index.js"></script>
 	</body>
 </html>
