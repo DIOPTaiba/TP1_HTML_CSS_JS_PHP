@@ -13,6 +13,10 @@ class ClientNonSalarieRepository extends Model{
 		parent::__construct();
     }
     
+    public function getResponsableCompte($id)
+    {
+        return $this->db->find('ResponsableCompte',$id);
+    }
     public function addClients($clients)
     {
         $this->db->persist($clients);
@@ -38,21 +42,12 @@ class ClientNonSalarieRepository extends Model{
         $this->db->persist($compte_epargne);
 	    $this->db->flush();
     }
-    public function addCompteCourant($compte_courant)
-    {
-        $this->db->persist($compte_courant);
-	    $this->db->flush();
-    }
     public function addCompteBloque($compte_bloque)
     {
         $this->db->persist($compte_bloque);
 	    $this->db->flush();
     }
-    public function getResponsableCompte($id_responsable_compte)
-    {
-        $resultat = $this->db->getRepository('ResponsableCompte')->findBy(array('id' => $id_responsable_compte));
-        return $resultat;
-    }
+    
     
     
 
