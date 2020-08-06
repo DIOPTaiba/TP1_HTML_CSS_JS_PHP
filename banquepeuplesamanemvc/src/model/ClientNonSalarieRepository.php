@@ -47,7 +47,17 @@ class ClientNonSalarieRepository extends Model{
         $this->db->persist($compte_bloque);
 	    $this->db->flush();
     }
-    
+
+    public function verifieClientExiste($identifiant_client)
+    {
+        return $this->db->getRepository('ClientNonSalarie')->findBy(
+			array('carte_identite' => $identifiant_client));
+    }
+
+    public function getClient($id_clients)
+    {
+        return $this->db->find('Clients', $id_clients);
+    }
     
     
 

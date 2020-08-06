@@ -2,7 +2,6 @@ var page_authentification = document.getElementById('page_authentification');
 var formulaire_admin = document.getElementById('formulaire_admin');
 var formulaire_responsable = document.getElementById('formulaire_responsable');
 var formulaire_caissiere = document.getElementById('formulaire_caissiere');
-page_authentification.style.display = "none";
 
 function affiche_authentification_admin() {
     page_authentification.style.display = "block";

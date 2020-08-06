@@ -1,56 +1,22 @@
 <?php
 
 use libs\system\Controller;
-use src\model\ClientMoralRepository;
+use src\model\ClientNonSalarieRepository;
 
-class ClientMoralController extends Controller
+class InsertClientExistantController extends Controller
 {
     public function __construct()
     {
         parent::__construct();        
     }
-    
-    public function compteClientMoral(){  
-        return $this->view->load("clientMoral/compteClientMoral");   
-    }
-    public function insertClientMoral(){
-
+public function insertClientNonSalarieExistant()
+    {
         extract($_POST);
-
-        $date_inscription = date("yy-m-d h:i:s");
         $date_ouverture = date('yy-m-d h:i:s');
         $date_changement_etat = date('yy-m-d h:i:s');
 
-        
-        $clientdb = new ClientMoralRepository();
-        $resultat = $clientdb->getResponsableCompte($id_responsable_compte);
-        
-        /* foreach($resultat as $responsable)
-        {
-            echo 'ok responsable = '.$responsable->getId();
-        } */
-
-        /* var_dump($resultat);
-        die(); */
-        $client = new Clients();
-        $client->setAdresse($adresse);
-        $client->setTelephone($telephone);
-        $client->setEmail($email);
-        $client->setTypeClient($type_client);
-        $client->setDateInscription($date_inscription);
-        $client->setIdResponsableCompte($resultat);
-
-        $clientdb->addClients($client);
-    
-
-        $clientMoral = new ClientMoral();
-        $clientMoral->setNomEntreprise($nom_entreprise);
-        $clientMoral->setIdentifiantEntreprise($identifiant_entreprise);
-        $clientMoral->setRaisonSocial($raison_social);
-        $clientMoral->setIdClients($client);
-
-        $clientdb->addClientMoral($clientMoral);
-
+        $clientdb = new ClientNonSalarieRepository();
+        $client = $clientdb->getClient($id_clients);
 
         $compte = new Comptes();
         $compte->setNumero_compte($numero_compte);
@@ -63,9 +29,6 @@ class ClientMoralController extends Controller
         $clientdb->addCompte($compte);
 
 
-        // Insertion état comptes lors de leurs créations
-        /* $etat_compte = new EtatCompte('actif', $date_changement_etat, $id_comptes);
-        $manager->addEtatCompte($etat_compte); */
         $etat_compte = new EtatCompte();
         $etat_compte->setEtatCompte("actif");
         $etat_compte->setDateChangementEtat($date_changement_etat);
@@ -87,17 +50,6 @@ class ClientMoralController extends Controller
             $clientdb->addCompteEpargne($compte_epargne);
             
         }
-        else if ($type_compte == 'compte courant')
-        {
-            /* $compte_courant = new CompteCourant($agios, $id_comptes);
-            $manager->addCompteCourant($compte_courant); */
-            $compte_courant = new CompteCourant();
-            $compte_courant->setAgios($agios);
-            $compte_courant->setIdComptes($compte);
-
-            $clientdb->addCompteCourant($compte_courant);
-
-        }
         else
         {
             /* $compte_bloque = new CompteBloque($frais_ouverture, $montant_remuneration, $duree_blocage, $id_comptes);
@@ -114,11 +66,10 @@ class ClientMoralController extends Controller
 
         $data["insertionOk"] = "Les informations sont bien enregistrées";
 
-        return $this->view->load("responsable/accueil_responsable", $data);   
-    } 
-    
+        return $this->view->load("responsable/accueil_responsable", $data);
+
+
+    }
+
 
 }
-
-
-?>

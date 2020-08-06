@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-08-05 08:21:29
+/* Smarty version 3.1.30, created on 2020-08-06 16:04:24
   from "/opt/lampp/htdocs/mesprojets/banquepeuplesamanemvc/src/view/responsable/accueil_responsable.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5f2a4fe9df7ce2_40380343',
+  'unifunc' => 'content_5f2c0de87cfa88_46558003',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6bf243a9b90d782139058bedec78f100a4471c16' => 
     array (
       0 => '/opt/lampp/htdocs/mesprojets/banquepeuplesamanemvc/src/view/responsable/accueil_responsable.html',
-      1 => 1596608411,
+      1 => 1596643388,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f2a4fe9df7ce2_40380343 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f2c0de87cfa88_46558003 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
     <title>Ouverture Compte Bancaire</title>
@@ -53,9 +53,11 @@ public/css/script_index.css" />
         <a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 ClientNonSalarie/compteClientNonSalarie">Compte Client non Salarié</a>
 
-        <a href="compte_client_salarie.php">Compte Client Salarié</a>
+        <a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+ClientSalarie/compteClientSalarie">Compte Client Salarié</a>
 
-        <a href="compte_client_moral.php">Compte Client Moral</a>
+        <a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+ClientMoral/compteClientMoral">Compte Client Moral</a>
 
     </div>
 

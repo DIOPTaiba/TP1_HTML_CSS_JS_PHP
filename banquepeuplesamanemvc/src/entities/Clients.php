@@ -19,7 +19,7 @@
 		private $telephone;
 		/** @Column(type="string") **/
 		private $email;
-		/** @Column(type="datetime") **/
+		/** @Column(type="string") **/
 		private $date_inscription;
 		/** @Column(type="string") **/
 		private $type_client;
@@ -78,7 +78,7 @@
 
 		public function setDateInscription($date_inscription) 
 		{ 
-			$this->date_inscription = new \DateTime($date_inscription); 
+			$this->date_inscription = $date_inscription; 
 		}
 		
 		public function setIdResponsableCompte($id_responsable_compte) 

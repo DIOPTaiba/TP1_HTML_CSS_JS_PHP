@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-08-06 17:02:06
-  from "/opt/lampp/htdocs/mesprojets/banquepeuplesamanemvc/src/view/clientNonSalarie/compteClientNonSalarie.html" */
+/* Smarty version 3.1.30, created on 2020-08-06 18:22:43
+  from "/opt/lampp/htdocs/mesprojets/banquepeuplesamanemvc/src/view/clientNonSalarie/clientNonSalarieExistant.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5f2c1b6ef2af89_79823881',
+  'unifunc' => 'content_5f2c2e53724824_99906631',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '336ffd6e43fd7064441f5e876fd1e92a05a2c488' => 
+    '84472384027ae26a8fad4fb2dce5dd9e0e56cf76' => 
     array (
-      0 => '/opt/lampp/htdocs/mesprojets/banquepeuplesamanemvc/src/view/clientNonSalarie/compteClientNonSalarie.html',
-      1 => 1596725970,
+      0 => '/opt/lampp/htdocs/mesprojets/banquepeuplesamanemvc/src/view/clientNonSalarie/clientNonSalarieExistant.html',
+      1 => 1596730932,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f2c1b6ef2af89_79823881 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f2c2e53724824_99906631 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -39,68 +39,75 @@ public/css/script_index.css" />
         <h1>BIENVENUE DANS LA BANQUE DU PEUPLE</h1>
     </header>
 
-    <div class="choix_client">
+    <!-- <div class="choix_client">
 
         <p>Cliquez sur Nouveau client pour enregistrer un compte pour un nouveau client</p>
         <p>Cliquez sur Client existant pour enregistrer un compte pour un client qui existe déjà</p>
         <div id="select_client">
             <button id="nouveau_client" name="nouveau_client" onclick="affiche_nouveau_client()">Nouveau Client</button>
-            <!--<label for="nouveau_client"></label><br>-->
+
             <button id="client_existant" name="client_existant" onclick="affiche_client_existant()">Client Existant</button>
-            <!--<label for="client_existant"></label><br>-->
+
         </div>
         <form id="saisie_id_client" action="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 RechercheClientNonSalarie/rechercheClient" method="POST">
             <input type="search" id="identifiant_client" name="identifiant_client" placeholder="identifiant client" />
             <input type="submit" name="search" id="search" value="Search" />
         </form>
-    </div>
+    </div> -->
 
-    <?php if (isset($_smarty_tpl->tpl_vars['clientIntrouvable']->value)) {?>
-    <div class="alert alert-danger" style="width: 30%; margin: auto; text-align: center;">
-        <?php echo $_smarty_tpl->tpl_vars['clientIntrouvable']->value;?>
 
-    </div>
-    <?php }?>
-
-    <form id="form_compte_non_salarie" action="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-ClientNonSalarie/insertClientNonSalarie" method="post" onsubmit="return verifie_formulaire_non_salarie(this)">
+    <form id="form_insert_client_existant_non_salarie" action="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+InsertClientExistant/insertClientNonSalarieExistant" method="post" onsubmit="return verifie_formulaire_non_salarie(this)">
 
         <h2>VEILLEZ SAISIR LES INFORMATIONS DU CLIENT</h2>
         <p><i>Les champs marqué par </i><em>*</em> sont <em>obligatoires</em></p>
+
         <fieldset>
             <legend>Informations du Client</legend>
             <div>
                 <label for="nom">Nom <em>*</em></label>
-                <input type="text" id="nom" name="nom" placeholder="ex : DIOP" onblur="verifie_nom(this)" />
+                <input type="text" id="nom" name="nom" value="<?php echo $_smarty_tpl->tpl_vars['nom']->value;?>
+" readonly />
             </div>
             <div>
                 <label for="prenom">Prénom <em>*</em></label>
-                <input type="text" id="prenom" name="prenom" placeholder="ex : Mor" onblur="verifie_prenom(this)" />
+                <input type="text" id="prenom" name="prenom" value="<?php echo $_smarty_tpl->tpl_vars['prenom']->value;?>
+" readonly />
             </div>
             <div>
                 <label for="adresse">Adresse <em>*</em></label>
-                <input type="text" id="adresse" name="adresse" placeholder="ex : Grand Yoff" onblur="verifie_adresse(this)" />
+                <input type="text" id="adresse" name="adresse" value="<?php echo $_smarty_tpl->tpl_vars['adresse']->value;?>
+" readonly />
             </div>
             <div>
                 <label for="telephone">Tel <em>*</em></label>
-                <input type="tel" id="telephone" name="telephone" placeholder="ex : +2217xxxxxxxx " onblur="verifie_telephone(this)" />
+                <input type="tel" id="telephone" name="telephone" value="<?php echo $_smarty_tpl->tpl_vars['telephone']->value;?>
+" readonly />
             </div>
             <div>
                 <label for="email">E-mail </label>
-                <input type="text" id="email" name="email" placeholder="ex : prenom.nom@simplon.co" onblur="verifie_email(this)" />
+                <input type="text" id="email" name="email" value="<?php echo $_smarty_tpl->tpl_vars['email']->value;?>
+" readonly />
             </div>
             <div>
                 <label for="carte_identite">CNI </label>
-                <input type="text" id="carte_identite" name="carte_identite" placeholder="1234567891234" />
+                <input type="text" id="carte_identite" name="carte_identite" value="<?php echo $_smarty_tpl->tpl_vars['carte_identite']->value;?>
+" readonly />
             </div>
             <div>
                 <label for="type_client">Type client </label>
-                <input type="text" id="type_client" name="type_client" value="Non Salarie" readonly />
+                <input type="text" id="type_client" name="type_client" value="<?php echo $_smarty_tpl->tpl_vars['type_client']->value;?>
+" readonly />
             </div>
             <div>
-                <label for="id_responsable_compte">Id responsable compte </label>
-                <input type="text" id="id_responsable_compte" name="id_responsable_compte" value="1" readonly />
+                <label for="date_inscription">Date Inscription </label>
+                <input type="text" id="date_inscription" name="date_inscription" value="<?php echo $_smarty_tpl->tpl_vars['date_inscription']->value;?>
+" readonly />
+            </div>
+            <div>
+                <input type="hidden" id="id_clients" name="id_clients" value="<?php echo $_smarty_tpl->tpl_vars['id_clients']->value;?>
+" readonly />
             </div>
 
         </fieldset>

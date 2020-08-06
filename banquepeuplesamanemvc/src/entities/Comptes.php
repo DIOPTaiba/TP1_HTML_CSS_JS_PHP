@@ -16,7 +16,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 		private $cle_rib;
 		/** @Column(type="decimal") **/
 		private $solde;
-		/** @Column(type="datetime") **/
+		/** @Column(type="string") **/
 		private $date_ouverture;
 		/** @Column(type="integer") **/
 		private $numero_agence;
@@ -77,7 +77,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 		public function setDateOuverture($date_ouverture) 
 		{ 
-			$this->date_ouverture =  new \DateTime($date_ouverture); 
+			$this->date_ouverture =  $date_ouverture; 
 		}
 		
 		public function setIdClients($id_clients) 

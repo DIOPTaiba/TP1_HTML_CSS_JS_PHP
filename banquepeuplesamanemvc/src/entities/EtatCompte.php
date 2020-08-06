@@ -12,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 		private $id;
 		/** @Column(type="string") **/
 		private $etat_compte;
-		/** @Column(type="datetime") **/
+		/** @Column(type="string") **/
 		private $date_changement_etat;
 		/**
      	* Many etats have Many comptes.
@@ -45,7 +45,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 		public function setDateChangementEtat($date_changement_etat) 
 		{ 
-			$this->date_changement_etat =  new \DateTime($date_changement_etat); 
+			$this->date_changement_etat =  $date_changement_etat; 
 		}
 		
 		public function setIdComptes(Comptes $id_comptes) 

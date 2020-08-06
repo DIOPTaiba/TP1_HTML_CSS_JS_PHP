@@ -104,7 +104,8 @@ class ClientNonSalarieController extends Controller
         $data["insertionOk"] = "Les informations sont bien enregistrées";
 
         return $this->view->load("responsable/accueil_responsable", $data);   
-    } 
+    }
+     
     
 
 }
